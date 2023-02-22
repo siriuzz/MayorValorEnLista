@@ -2,42 +2,60 @@
 //
 
 #include <iostream>
-#include <list>
 using namespace std;
 
-int nums[100] = { 20,10,40,30,5 };
 
 void Intercambiar(int* num1, int* num2) {
-	int i = 0, temp;
-	while (nums[i] != NULL) {
-		if (nums[i] == *num1 && nums[i + 1] == *num2) {
-			temp = *num1;
-			*num1 = *num2;
-			*num2 = temp;
-			break;
-		}
-		else {
-			temp = *num2;
-			*num2 = *num1;
-			*num1 = temp;
-			break;
-		}
-	}
+	int temp;
+	temp = *num1;
+	*num1 = *num2;
+	*num2 = temp;
 }
 
-int BusquedaBinaria(int nums[], int lookUpValue) {
-	return 1;
+int Ordenar(int nums[], int low, int high, int pivote) {
+	int pivoteIndex = low;
+	for (int i = low; i < high + 1;i++) {
+		if (nums[i] < pivote + 1) {
+			swap(nums[pivoteIndex], nums[i]);
+			pivoteIndex++;
+		}
+	}
+	pivoteIndex--;
+	return pivoteIndex;
 
+}
+
+void Quicksort(int nums[], int low, int high) {
+	if (low < high) {
+		int pivote = nums[high];
+
+		int pivoteIndex = Ordenar(nums, low, high, pivote);
+
+		Quicksort(nums, low, pivoteIndex - 1);
+		Quicksort(nums, pivoteIndex + 1, high);
+	}
 }
 
 
 int main()
 {
-	Intercambiar(&nums[1], &nums[0]);
-	for (int i = 0; i < 5; i++) {
-		cout << nums[i] << endl;
+	int nums[100] = { 2,4,60,3,80,5,20 };
+	int i = 0;
+	while (nums[i] != NULL) {
+		i++;
 	}
 
+	int high = i;
+	/*int length;
+	cin >> length;
+
+	nums.resize(length);*/
+
+	Quicksort(nums,0, high - 1);
+	//Intercambiar(&nums[3], &nums[4]);
+	for (int i = 0; i <= 6;i++) {
+		cout << nums[i] << " ";
+	}
 	//cout << "Inserte un numero: ";
 
 
