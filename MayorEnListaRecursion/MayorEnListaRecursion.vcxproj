@@ -24,6 +24,7 @@
     <ProjectGuid>{03e93f84-d261-4634-80f9-189e5253a719}</ProjectGuid>
     <RootNamespace>MayorEnListaRecursion</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>MenorEnListaRecursion</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

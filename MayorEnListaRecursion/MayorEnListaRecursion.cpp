@@ -22,15 +22,15 @@ int EncontrarMayor(int arr[], int low, int high) {
 	if (high == 0) return arr[0];
 
 	int maxElem = EncontrarMayor(arr, low, high - 1);
-	if (arr[high] > maxElem) return arr[high];
+	if (arr[high] < maxElem) return arr[high];
 	else return maxElem;
 }
 
 
 int main()
 {
-	int nums[100] = { 1,2,3,4,1,2,3,4 };
-	/*while (true) {
+	int nums[100];
+	while (true) {
 		string cantNums, num;
 		cout << "Cuantos numeros desea insertar? ";
 		cin >> cantNums;
@@ -54,7 +54,7 @@ int main()
 		}
 
 		break;
-	}*/
+	}
 
 	int i = 0, maxNum;
 	while (nums[i] != NULL) {
